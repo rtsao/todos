@@ -9,5 +9,8 @@ html(lang="en", ng-app="app")
       form(ng-submit="todos.addItem()")
         input(placeholder="What needs to be done?", ng-model="todos.newTodo")
       ul.items(ng-model="todos.items")
-        li.item(ng-click="todos.toggleStatus(item)", ng-repeat="item in todos.items | orderBy:'title'", ng-class="{done:item.done}") {{item.title}}
+        li.item(ng-repeat="item in todos.items | orderBy:'title'", ng-class="{done:item.done}") 
+          a(ng-click="todos.toggleItemStatus(item)") ✓
+          span {{item.title}}
+          a(ng-click="todos.removeItem(item)") ×
   script(src="js/bundle.js")

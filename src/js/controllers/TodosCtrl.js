@@ -16,8 +16,12 @@ module.exports = angular.module('app.TodosCtrl', [])
 
     }
 
-    this.toggleStatus = function(item) {
+    this.toggleItemStatus = function(item) {
       item.done = !item.done;
+    }
+
+    this.removeItem = function(item) {
+      that.items.splice(that.items.indexOf(item), 1);
     }
 
 
