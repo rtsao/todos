@@ -16,4 +16,5 @@ html(lang="en", ng-app="app")
           a(ng-click="todos.toggleItemStatus(item)") ✓
           span {{item.title}}
           a(ng-click="todos.removeItem(item)") ×
+      button(ng-click="todos.clearCompleted()") Clear completed tasks
   script(src="js/bundle.js")

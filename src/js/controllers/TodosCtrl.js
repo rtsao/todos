@@ -12,10 +12,15 @@ module.exports = angular.module('app.TodosCtrl', [])
 
     this.addItem = function() {
 
+      if (!that.newTodo)
+        return;
+
       that.items.push({
         title:that.newTodo,
         done:false
       });
+
+      that.newTodo = '';
 
     }
 
@@ -25,6 +30,12 @@ module.exports = angular.module('app.TodosCtrl', [])
 
     this.removeItem = function(item) {
       that.items.splice(that.items.indexOf(item), 1);
+    }
+
+    this.clearCompleted = function() {
+      that.items = that.items.filter(function(item) {
+        return !item.done;
+      });
     }
 
 
