@@ -6,12 +6,11 @@ html(lang="en", ng-app="app")
     link(rel="stylesheet", href="css/style.css", type="text/css")
   body
     section.todos(ng-controller="TodosCtrl as todos")
-      h1 My todos
-      div
-        h3 Sort By
-        ul.sorting
-          each prop, title in {'added':'$$hashKey','title':'title','status':'done'}
-            li(ng-click="todos.sortBy('"+prop+"')", ng-class="{selected:todos.sort.option==='"+prop+"', reverse:todos.sort.reverse}")= title
+      h1 My Cool Todos
+      h3 Sort By
+      ul.sorting
+        each prop, title in {'added':'$$hashKey','title':'title','status':'done'}
+          li(ng-click="todos.sortBy('"+prop+"')", ng-class="{selected:todos.sort.option==='"+prop+"', reverse:todos.sort.reverse}")= title
       form#new-task(ng-submit="todos.addItem()")
         input#new-task-input(placeholder="What needs to be done?", ng-model="todos.newTodo", autofocus)
         input#new-task-submit(type="submit", value="Add Task", ng-class="{ready:!!todos.newTodo}")
