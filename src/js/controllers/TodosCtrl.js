@@ -11,7 +11,6 @@ module.exports = angular.module('app.TodosCtrl', [storageService.name])
     
     //Ensure unique $$hashKey
     _.each(storageService.getItems(), function(item) {
-      console.log('yo');
       that.items.push({
         title:item.title,
         done:item.done
@@ -35,7 +34,6 @@ module.exports = angular.module('app.TodosCtrl', [storageService.name])
       that.newTodo = '';
 
       storageService.setItems(that.items);
-
     }
 
     this.toggleItemStatus = function(item) {
