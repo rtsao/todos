@@ -6,6 +6,7 @@ html(lang="en", ng-app="app")
     link(rel="stylesheet", href="css/style.css", type="text/css")
   body
     section.todos(ng-controller="TodosCtrl as todos")
+      h1 My todos
       div
         h3 Sort By
         ul.sorting
@@ -20,6 +21,6 @@ html(lang="en", ng-app="app")
           input.title(ng-model="item.title")
           a.close(ng-click="todos.removeItem(item)") ×
       button(ng-click="todos.clearCompleted()") Clear completed tasks
-  script(src="js/bundle.js")
   <script type="text/javascript" src="//use.typekit.net/wlp8ffk.js"></script>
   <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+  script(src="js/bundle.js")
