@@ -222,6 +222,7 @@ h3 {
       -ms-user-select: none;
           user-select: none;
   text-transform: capitalize;
+  cursor: pointer;
 }
 .sorting li::after {
   content: ' ';
