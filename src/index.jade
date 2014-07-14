@@ -9,14 +9,13 @@ html(lang="en", ng-app="app")
       div
         h3 Sort By
         ul.sorting
-          li(ng-click="todos.sortBy = ''") Added
-          li(ng-click="todos.sortBy = 'title'") Title
-          li(ng-click="todos.sortBy = 'done'") Status
+          each prop, title in {'added':'$$hashKey','title':'title','status':'done'}
+            li(ng-click="todos.sortBy('"+prop+"')", ng-class="{selected:todos.sort.option==='"+prop+"', reverse:todos.sort.reverse}")= title
       form#new-task(ng-submit="todos.addItem()")
         input#new-task-input(placeholder="What needs to be done?", ng-model="todos.newTodo", autofocus)
         input#new-task-submit(type="submit", value="Add Task", ng-class="{ready:!!todos.newTodo}")
       ul.items(ng-model="todos.items")
-        li.item(ng-repeat="item in todos.items | orderBy:todos.sortBy:todos.reverse", ng-class="{done:item.done}") 
+        li.item(ng-repeat="item in todos.items | orderBy:todos.sort.option:todos.sort.reverse", ng-class="{done:item.done}") 
           a.check(ng-click="todos.toggleItemStatus(item)") ✓
           input.title(ng-model="item.title")
           a.close(ng-click="todos.removeItem(item)") ×

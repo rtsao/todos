@@ -154,6 +154,27 @@ h3 {
   li {
     display:inline-block;
     margin-right: 20px;
+    user-select: none;
+    text-transform: capitalize;
+
+    &::after {
+      content: ' ';
+      width: 10px;
+      font-size: 10px;
+      vertical-align: middle;
+      padding-left: 3px;
+      display: inline-block;
+
+    }
+
+    &.selected::after {
+      content: '▲';
+    }
+
+    &.selected.reverse::after {
+      content: '▼';
+
+    }
 
   }
 }

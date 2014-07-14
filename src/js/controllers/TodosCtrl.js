@@ -7,9 +7,13 @@ module.exports = angular.module('app.TodosCtrl', [])
 
     var that = this;
 
-    this.sortBy = '';
-    this.reverse = false;
+    this.sort = {
+      option: '$$hashKey',
+      reverse: false
+    }
+
     this.items = [{title:'foo', done:false}, {title:'bar', done:false}, {title:'baz', done:true}];
+    console.log(this.items)
 
     this.addItem = function() {
 
@@ -37,6 +41,16 @@ module.exports = angular.module('app.TodosCtrl', [])
       that.items = that.items.filter(function(item) {
         return !item.done;
       });
+    }
+
+    this.sortBy = function(option) {
+
+      that.sort.option === option ?
+        that.sort.reverse = !that.sort.reverse :
+        that.sort.option = option
+
+      console.log(that.sort.reverse);
+
     }
 
 

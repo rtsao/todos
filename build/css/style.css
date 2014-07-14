@@ -212,4 +212,23 @@ h3 {
 .sorting li {
   display: inline-block;
   margin-right: 20px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  text-transform: capitalize;
+}
+.sorting li::after {
+  content: ' ';
+  width: 10px;
+  font-size: 10px;
+  vertical-align: middle;
+  padding-left: 3px;
+  display: inline-block;
+}
+.sorting li.selected::after {
+  content: '▲';
+}
+.sorting li.selected.reverse::after {
+  content: '▼';
 }
