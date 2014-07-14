@@ -5,6 +5,9 @@ module.exports = angular.module('app.TodosCtrl', [])
 
     var that = this;
 
+    this.sortBy = 'title';
+    this.reverse = false;
+
     this.items = [{title:'foo', done:false}, {title:'bar', done:false}, {title:'baz', done:true}];
 
     this.addItem = function() {
