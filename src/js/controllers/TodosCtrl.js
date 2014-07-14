@@ -1,13 +1,14 @@
 var angular = require('angular');
+var _ = require('lodash');
 
 module.exports = angular.module('app.TodosCtrl', [])
   .controller('TodosCtrl', function() {
 
+
     var that = this;
 
-    this.sortBy = 'title';
+    this.sortBy = '';
     this.reverse = false;
-
     this.items = [{title:'foo', done:false}, {title:'bar', done:false}, {title:'baz', done:true}];
 
     this.addItem = function() {

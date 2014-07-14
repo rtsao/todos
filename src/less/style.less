@@ -1,3 +1,164 @@
-.done {
-  text-decoration: line-through;
+@import "mixins";
+@import "animations";
+@import "colors";
+
+@item-height: 50px;
+
+
+body {
+  background: @background-color;
+  font-family: "proxima-nova", sans-serif;
 }
+
+
+.item-input-style {
+  border: 0;
+  outline: 0;
+  padding: 0;
+  margin: 0;
+  font-size: 18px;
+  font-family: inherit;
+  background: transparent;
+  flex: 1 0;
+}
+
+#new-task {
+    background-color: @item-background-color;
+    padding: 0px;
+    height: @item-height;
+    line-height: @item-height;
+    margin: 10px 0;
+    position: relative;
+    box-shadow: 0 0 2px 0 rgba(0,0,0,0.26);
+    border-radius: 1px;
+    display: flex;
+
+    &-input {
+      &:extend(.item-input-style);
+      padding-left: 40px;
+    }
+
+    &-submit {
+      cursor: pointer;
+      border: 0;
+      outline: 0;
+      margin: 0;
+      font-family: inherit;
+      font-size: 14px;
+      line-height: 18px;
+      padding: 0 18px;
+      text-transform: uppercase;
+      background-color: @task-submit-background-color;
+      transition: color 0.2s ease;
+      color: @task-submit-color;
+      cursor: auto;
+
+      &.ready {
+        cursor: pointer;
+        color: @task-submit-color-active;
+      }
+    }
+
+
+}
+
+.todos {
+  width: 700px;
+  margin: 0 auto;
+
+  .items {
+    margin: 0;
+    &:extend(.plain-list);
+  }
+
+  .item {
+    background-color: #fff;
+    background: #fff linear-gradient(@item-background-color-done, @item-background-color-done);
+    background-size: 0% 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.3s ease-in-out;
+    padding: 0;
+    height: @item-height;
+    line-height: @item-height;
+    margin: 0 0 10px 0;
+    position: relative;
+    box-shadow: 0 0 2px 0 rgba(0,0,0,0.26);
+    border-radius: 1px;
+    display: flex;
+
+    .title {
+      &:extend(.item-input-style);
+      flex: 1 0;
+      background: transparent;
+    }
+
+    &.ng-enter {
+      .animate(fadeInDownBig);
+    }
+
+    &.ng-leave {
+      .animate(fadeOutRightBig);
+    }
+
+    &.done {
+      .title {
+        text-decoration: line-through;
+      }
+      .check {
+        color: @check-color-active;
+      }
+
+      background-size: 100% 100%;
+    }
+
+    .close {
+      &:extend(.button);
+      color: @close-color-inactive;
+      display: none;
+
+      &:hover {
+        color: @close-color-active;
+      }
+    }
+
+    &:hover {
+      .close {
+        display:block;
+      }
+    }
+
+    .check {
+      &:extend(.button);
+      color: @check-color-inactive;
+      font-weight: bold;
+      position: relative;
+      top: 3px;
+
+    }
+
+  }
+
+}
+
+h3 {
+  text-transform: uppercase;
+  font-size: 14px;
+  margin: 0 0 4px 0;
+}
+
+.sorting {
+  &:extend(.plain-list);
+
+  display:block;
+
+  li {
+    display:inline-block;
+    margin-right: 20px;
+
+  }
+}
+
+
+
+
+

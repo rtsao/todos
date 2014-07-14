@@ -5,16 +5,22 @@ html(lang="en", ng-app="app")
     meta(charset="utf-8")
     link(rel="stylesheet", href="css/style.css", type="text/css")
   body
-    div(ng-controller="TodosCtrl as todos")
-      ul Sort
-        li(ng-click="todos.sortBy = 'title'") Title
-        li(ng-click="todos.sortBy = 'done'") Status
-      form(ng-submit="todos.addItem()")
-        input(placeholder="What needs to be done?", ng-model="todos.newTodo")
+    section.todos(ng-controller="TodosCtrl as todos")
+      div
+        h3 Sort By
+        ul.sorting
+          li(ng-click="todos.sortBy = ''") Added
+          li(ng-click="todos.sortBy = 'title'") Title
+          li(ng-click="todos.sortBy = 'done'") Status
+      form#new-task(ng-submit="todos.addItem()")
+        input#new-task-input(placeholder="What needs to be done?", ng-model="todos.newTodo", autofocus)
+        input#new-task-submit(type="submit", value="Add Task", ng-class="{ready:!!todos.newTodo}")
       ul.items(ng-model="todos.items")
         li.item(ng-repeat="item in todos.items | orderBy:todos.sortBy:todos.reverse", ng-class="{done:item.done}") 
-          a(ng-click="todos.toggleItemStatus(item)") ✓
-          span {{item.title}}
-          a(ng-click="todos.removeItem(item)") ×
+          a.check(ng-click="todos.toggleItemStatus(item)") ✓
+          input.title(ng-model="item.title")
+          a.close(ng-click="todos.removeItem(item)") ×
       button(ng-click="todos.clearCompleted()") Clear completed tasks
   script(src="js/bundle.js")
+  <script type="text/javascript" src="//use.typekit.net/wlp8ffk.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
