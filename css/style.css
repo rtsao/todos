@@ -1,3 +1,215 @@
-.done {
+.plain-list,
+.todos .items,
+.sorting {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.button,
+.todos .item .close,
+.todos .item .check {
+  text-align: center;
+  cursor: pointer;
+  font-size: 32px;
+  width: 40px;
+  height: 40px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+@-webkit-keyframes fadeInDownBig {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -200px, 0);
+            transform: translate3d(0, -200px, 0);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+            transform: none;
+  }
+}
+@keyframes fadeInDownBig {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -200px, 0);
+            transform: translate3d(0, -200px, 0);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+            transform: none;
+  }
+}
+@-webkit-keyframes fadeOutRightBig {
+  from {
+    opacity: 1;
+    -webkit-transform: none;
+            transform: none;
+  }
+  to {
+    opacity: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    -webkit-transform: translate3d(200px, 0, 0);
+            transform: translate3d(200px, 0, 0);
+  }
+}
+@keyframes fadeOutRightBig {
+  from {
+    opacity: 1;
+    -webkit-transform: none;
+            transform: none;
+  }
+  to {
+    opacity: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    -webkit-transform: translate3d(200px, 0, 0);
+            transform: translate3d(200px, 0, 0);
+  }
+}
+.animate-ease,
+.todos .item.ng-enter,
+.todos .item.ng-leave {
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+}
+body {
+  background: #eef3f5;
+  font-family: "proxima-nova", sans-serif;
+}
+.item-input-style,
+#new-task-input,
+.todos .item .title {
+  border: 0;
+  outline: 0;
+  padding: 0;
+  margin: 0;
+  font-size: 18px;
+  font-family: inherit;
+  background: transparent;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 0;
+      -ms-flex: 1 0;
+          flex: 1 0;
+}
+#new-task {
+  background-color: #ffffff;
+  padding: 0px;
+  height: 50px;
+  line-height: 50px;
+  margin: 10px 0;
+  position: relative;
+  box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.26);
+  border-radius: 1px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+#new-task-input {
+  padding-left: 40px;
+}
+#new-task-submit {
+  cursor: pointer;
+  border: 0;
+  outline: 0;
+  margin: 0;
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 18px;
+  padding: 0 18px;
+  text-transform: uppercase;
+  background-color: #4a90e2;
+  -webkit-transition: color 0.2s ease;
+          transition: color 0.2s ease;
+  color: #3369a8;
+  cursor: auto;
+}
+#new-task-submit.ready {
+  cursor: pointer;
+  color: #ffffff;
+}
+.todos {
+  width: 700px;
+  margin: 0 auto;
+}
+.todos .items {
+  margin: 0;
+}
+.todos .item {
+  background-color: #fff;
+  background: #ffffff -webkit-linear-gradient(#e6e9eb, #e6e9eb);
+  background: #ffffff linear-gradient(#e6e9eb, #e6e9eb);
+  background-size: 0% 100%;
+  background-repeat: no-repeat;
+  -webkit-transition: background-size 0.3s ease-in-out;
+          transition: background-size 0.3s ease-in-out;
+  padding: 0;
+  height: 50px;
+  line-height: 50px;
+  margin: 0 0 10px 0;
+  position: relative;
+  box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.26);
+  border-radius: 1px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+.todos .item .title {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 0;
+      -ms-flex: 1 0;
+          flex: 1 0;
+  background: transparent;
+}
+.todos .item.ng-enter {
+  -webkit-animation: 0.4s fadeInDownBig;
+          animation: 0.4s fadeInDownBig;
+}
+.todos .item.ng-leave {
+  -webkit-animation: 0.4s fadeOutRightBig;
+          animation: 0.4s fadeOutRightBig;
+}
+.todos .item.done {
+  background-size: 100% 100%;
+}
+.todos .item.done .title {
   text-decoration: line-through;
+}
+.todos .item.done .check {
+  color: #b8e986;
+}
+.todos .item .close {
+  color: #d4d4d4;
+  display: none;
+}
+.todos .item .close:hover {
+  color: #af4c4c;
+}
+.todos .item:hover .close {
+  display: block;
+}
+.todos .item .check {
+  color: #f6f6f6;
+  font-weight: bold;
+  position: relative;
+  top: 3px;
+}
+h3 {
+  text-transform: uppercase;
+  font-size: 14px;
+  margin: 0 0 4px 0;
+}
+.sorting {
+  display: block;
+}
+.sorting li {
+  display: inline-block;
+  margin-right: 20px;
 }
