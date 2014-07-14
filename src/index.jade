@@ -15,11 +15,11 @@ html(lang="en", ng-app="app")
         input#new-task-input(placeholder="What needs to be done?", ng-model="todos.newTodo", autofocus)
         input#new-task-submit(type="submit", value="Add Task", ng-class="{ready:!!todos.newTodo}")
       ul.items(ng-model="todos.items")
-        li.item(ng-repeat="item in todos.items | orderBy:todos.sort.option:todos.sort.reverse", ng-class="{done:item.done}") 
+        li.item(ng-repeat="item in todos.items | orderBy:todos.sort.option:todos.sort.reverse", ng-class="{done:item.done}", ng-cloak) 
           a.check(ng-click="todos.toggleItemStatus(item)") ✓
           input.title(ng-model="item.title")
           a.close(ng-click="todos.removeItem(item)") ×
       button(ng-click="todos.clearCompleted()") Clear completed tasks
+  script(src="js/bundle.js")
   <script type="text/javascript" src="//use.typekit.net/wlp8ffk.js"></script>
   <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-  script(src="js/bundle.js")
