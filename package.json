@@ -19,6 +19,8 @@
     "watchify": "^0.10.2",
     "lodash": "^2.4.1",
     "uglifyify": "^2.5.0",
-    "gulp-uglify": "^0.3.1"
+    "gulp-uglify": "^0.3.1",
+    "angular": "^1.2.19",
+    "angular-animate": "^1.2.16"
   }
 }

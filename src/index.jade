@@ -1,0 +1,13 @@
+doctype html
+html(lang="en", ng-app="app")
+  head
+    title Todos!
+    meta(charset="utf-8")
+    link(rel="stylesheet", href="css/style.css", type="text/css")
+  body
+    div(ng-controller="TodosCtrl as todos")
+      form(ng-submit="todos.addItem()")
+        input(placeholder="What needs to be done?", ng-model="todos.newTodo")
+      ul.items(ng-model="todos.items")
+        li.item(ng-click="todos.toggleStatus(item)", ng-repeat="item in todos.items | orderBy:'title'", ng-class="{done:item.done}") {{item.title}}
+  script(src="js/bundle.js")
